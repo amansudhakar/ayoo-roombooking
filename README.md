@@ -10,6 +10,10 @@ Ayoo! Rooms is a Python Tkinter hotel-room booking demo backed by MySQL.
 This account is created automatically when the app starts. It is for classroom
 demonstration only. Do not use it for real accounts or real personal data.
 
+## !!! System Requirements
+* **Python Version:** Supported up to **Python 3.12.10** (`>=3.10.0, <=3.12.10`).
+* **Compatibility Warning:** Versions newer than Python 3.12.10 (including 3.12.11+ and 3.13+) are not supported and may break.
+
 ## Run the app
 
 1. Install Python and MySQL Community Server. Start the MySQL Server service.

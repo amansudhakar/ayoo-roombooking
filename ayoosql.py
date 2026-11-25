@@ -2,6 +2,7 @@
 import os
 import mysql.connector as msq
 from tkinter.messagebox import showerror
+import sys
 
 DB_HOST = os.getenv("AYOO_DB_HOST", "localhost")
 DB_PORT = int(os.getenv("AYOO_DB_PORT", "3306"))
@@ -379,8 +380,17 @@ def initialize_database():
 
 
 try:
+
+    if sys.version_info[:3] > (3, 12, 10):
+
+        showerror(title = "Unsupported version", message = "Error: This release is only supported up to Python 3.12.10. You are"
+             f" using {sys.version.split()[0]}.")
+        raise SystemExit(1)
+    
     initialize_database()
+
 except msq.Error as err:
+
     showerror(
         "MySQL setup failed",
         "Ayoo! Rooms could not connect to MySQL. Confirm MySQL Server is "
@@ -388,6 +398,3 @@ except msq.Error as err:
         f"to your MySQL password.\n\nDetails: {err}",
     )
     raise SystemExit(1)
-
-
-
